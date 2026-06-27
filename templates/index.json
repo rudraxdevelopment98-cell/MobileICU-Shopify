@@ -48,7 +48,7 @@
             "imagenew": "shopify://shop_images/Vector_4.png",
             "heading": "<strong>GET ANY ACCESSORY</strong>",
             "heading_size": "h1",
-            "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLEWHOLESALE PRICE",
+            "subheading": "Phone & laptop accessories at genuine wholesale prices",
             "button_label": "Shop Now",
             "link": "https://mobile-icu-cws.myshopify.com/collections",
             "button_label1": "Register",
@@ -71,7 +71,7 @@
             "imagenew": "shopify://shop_images/Vector_5.png",
             "heading": "<strong>GET ANY ACCESSORY</strong>",
             "heading_size": "h1",
-            "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLEWHOLESALE PRICE",
+            "subheading": "Phone & laptop accessories at genuine wholesale prices",
             "button_label": "Shop Now",
             "link": "https://mobile-icu-cws.myshopify.com/collections",
             "button_label1": "Register",
@@ -94,7 +94,7 @@
             "imagenew": "shopify://shop_images/Vector_4.png",
             "heading": "<strong>GET ANY ACCESSORY</strong>",
             "heading_size": "h1",
-            "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLEWHOLESALE PRICE",
+            "subheading": "Phone & laptop accessories at genuine wholesale prices",
             "button_label": "Shop Now",
             "link": "https://mobile-icu-cws.myshopify.com/collections",
             "button_label1": "Register",
@@ -433,12 +433,11 @@
     },
     "featured_collection_HxnVaJ": {
       "type": "featured-collection",
-      "disabled": true,
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "audio-accessories",
         "products_to_show": 8,
-        "title": "Products",
+        "title": "Best Sellers",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -513,14 +512,12 @@
   "order": [
     "slideshow_Jz8Wgm",
     "mi_category_grid_main",
-    "hero_banner_EHb3iE",
+    "icon_with_text_custom_cAXW93",
+    "featured_collection_HxnVaJ",
     "image_with_text_wGTiEw",
     "image_with_text_bCEeyB",
     "image_with_text_ND8eRy",
     "image_with_text_GDVG9k",
-    "collection_slider_6Rfxga",
-    "about_us_XjqA8r",
-    "featured_collection_HxnVaJ",
-    "icon_with_text_custom_cAXW93"
+    "about_us_XjqA8r"
   ]
 }
