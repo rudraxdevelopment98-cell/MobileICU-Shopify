@@ -9,6 +9,32 @@
  */
 {
   "sections": {
+    "mi_category_grid_main": {
+      "type": "mi-category-grid",
+      "blocks": {
+        "c1": { "type": "category", "settings": { "collection": "cables", "title": "Cables" } },
+        "c2": { "type": "category", "settings": { "collection": "charger", "title": "Chargers" } },
+        "c3": { "type": "category", "settings": { "collection": "adapter", "title": "Adapters" } },
+        "c4": { "type": "category", "settings": { "collection": "audio-accessories", "title": "Audio" } },
+        "c5": { "type": "category", "settings": { "collection": "batteries", "title": "Batteries" } },
+        "c6": { "type": "category", "settings": { "collection": "headphone", "title": "Headphones" } },
+        "c7": { "type": "category", "settings": { "collection": "holder", "title": "Holders" } },
+        "c8": { "type": "category", "settings": { "collection": "gadgets", "title": "Gadgets" } }
+      },
+      "block_order": ["c1","c2","c3","c4","c5","c6","c7","c8"],
+      "settings": {
+        "heading": "Shop by category",
+        "heading_size": "h1",
+        "view_all_link": "shopify://collections",
+        "view_all_label": "Explore all",
+        "columns_desktop": 4,
+        "show_count": true,
+        "soft_bg": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 56,
+        "padding_bottom": 28
+      }
+    },
     "slideshow_Jz8Wgm": {
       "type": "slideshow",
       "blocks": {
@@ -486,6 +512,7 @@
   },
   "order": [
     "slideshow_Jz8Wgm",
+    "mi_category_grid_main",
     "hero_banner_EHb3iE",
     "image_with_text_wGTiEw",
     "image_with_text_bCEeyB",

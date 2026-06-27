@@ -1,0 +1,196 @@
+/* =====================================================================
+   MOBILE ICU — Redesign polish (2026)
+   Premium, clean storefront styling inspired by modern phone-accessory
+   wholesalers. Loaded after base.css + style.css so it overrides them.
+   Brand accent: gold. Buttons: ink (near-black). Background: clean white.
+   ===================================================================== */
+
+:root {
+  --mi-gold: #c9a227;        /* premium gold accent */
+  --mi-gold-soft: #f3e7c2;   /* soft gold tint for chips/badges */
+  --mi-ink: #14110e;         /* near-black for buttons/text */
+  --mi-ink-soft: #5c5750;    /* muted text */
+  --mi-line: #ece9e3;        /* hairline borders */
+  --mi-bg-soft: #f7f5f1;     /* soft section background */
+  --mi-radius: 14px;
+  --mi-shadow: 0 6px 24px rgba(20, 17, 14, 0.08);
+  --mi-shadow-hover: 0 14px 38px rgba(20, 17, 14, 0.14);
+}
+
+/* ---------- Rhythm & headings ---------- */
+.section-header,
+.title-wrapper-with-link {
+  margin-bottom: 2.4rem;
+}
+
+h1, h2, .h1, .h2,
+.section-header h2,
+.title {
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+/* Gold underline accent beneath centered section titles */
+.title-wrapper--no-top-margin > .title,
+.section-header .title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1.1rem;
+}
+.title-wrapper--no-top-margin > .title::after,
+.section-header .title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--mi-gold);
+  transform: translateX(-50%);
+}
+
+/* ---------- Buttons: premium ink with gold hover ---------- */
+.button,
+.shopify-payment-button__button--unbranded,
+.product-form__submit {
+  border-radius: 999px !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  min-height: 4.6rem;
+  padding: 0 2.6rem;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+}
+.button--primary,
+.button:not(.button--secondary):not(.button--tertiary),
+.shopify-payment-button__button--unbranded,
+.product-form__submit {
+  --color-button: 20, 17, 14;        /* ink */
+  --color-button-text: 255, 255, 255;
+  box-shadow: 0 4px 14px rgba(20, 17, 14, 0.18);
+}
+.button--primary:hover,
+.button:not(.button--secondary):not(.button--tertiary):hover,
+.shopify-payment-button__button--unbranded:hover,
+.product-form__submit:hover {
+  --color-button: 201, 162, 39;      /* gold */
+  --color-button-text: 20, 17, 14;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(201, 162, 39, 0.32);
+}
+.button--secondary {
+  border-radius: 999px !important;
+  border: 1.5px solid rgba(20,17,14,.18) !important;
+}
+.button--secondary:hover {
+  border-color: var(--mi-gold) !important;
+  color: var(--mi-ink) !important;
+}
+
+/* ---------- Product cards ---------- */
+.card-wrapper,
+.card {
+  --mi-card-radius: var(--mi-radius);
+}
+.card--standard .card__inner,
+.card__media .media,
+.card .card__inner {
+  border-radius: var(--mi-radius);
+  overflow: hidden;
+}
+.card__media img,
+.card .media img {
+  transition: transform .5s cubic-bezier(.2,.6,.2,1);
+}
+.card-wrapper:hover .card__media img,
+.card-wrapper:hover .media img {
+  transform: scale(1.05);
+}
+.card-wrapper {
+  transition: transform .2s ease;
+}
+.card-wrapper:hover {
+  transform: translateY(-4px);
+}
+.card-information {
+  padding-top: 1.2rem;
+}
+.card-information .card__heading,
+.card-information .card__heading a {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.card-information .card__heading a:hover {
+  color: var(--mi-gold);
+}
+
+/* ---------- Badges: gold "Sale / Sold out / custom" ---------- */
+.badge {
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  padding: 0.5rem 1.1rem;
+  border: none !important;
+}
+.badge--bottom-left,
+.card__badge .badge {
+  background: var(--mi-gold) !important;
+  color: var(--mi-ink) !important;
+}
+.badge.color-scheme-1,
+.price--on-sale .badge {
+  background: var(--mi-ink) !important;
+  color: #fff !important;
+}
+
+/* ---------- Prices ---------- */
+.price__sale .price-item--sale,
+.price--on-sale .price-item--sale {
+  color: #b3261e;
+  font-weight: 700;
+}
+.price__regular .price-item--regular {
+  font-weight: 600;
+}
+
+/* ---------- Collection / category cards ---------- */
+.collection-list__item .card,
+.card--card.card--media {
+  box-shadow: var(--mi-shadow);
+}
+
+/* ---------- Header polish ---------- */
+.header {
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+}
+.header__heading-link .header__heading-logo {
+  transition: opacity .2s ease;
+}
+.header__menu-item:hover span,
+.header__active-menu-item {
+  color: var(--mi-gold) !important;
+  text-decoration: none;
+}
+.header__menu-item span {
+  font-weight: 600;
+  letter-spacing: .005em;
+}
+
+/* ---------- Soft section backgrounds for rhythm ---------- */
+.mi-section-soft {
+  background: var(--mi-bg-soft);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--mi-line);
+}
+
+/* ---------- Generic spacing softening for big screens ---------- */
+@media screen and (min-width: 990px) {
+  .section-template--main,
+  .shopify-section--bordered { }
+}

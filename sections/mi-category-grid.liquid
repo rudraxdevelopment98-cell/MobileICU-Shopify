@@ -1,0 +1,212 @@
+{%- comment -%}
+  MOBILE ICU — Category grid
+  Clean, modern category tiles. Each tile shows a collection image; if the
+  collection has no image it automatically falls back to the first product's
+  featured image so there are never empty boxes.
+{%- endcomment -%}
+
+{{ 'redesign.css' | asset_url | stylesheet_tag }}
+
+<div class="mi-catgrid color-{{ section.settings.color_scheme }} isolate{% if section.settings.soft_bg %} mi-section-soft{% endif %}">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-tablet-down title-wrapper--no-top-margin">
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        {%- if section.settings.view_all_link != blank -%}
+          <a href="{{ section.settings.view_all_link }}" class="mi-catgrid__viewall link underlined-link">
+            {{ section.settings.view_all_label | default: 'Explore all' }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="mi-catgrid__list mi-cols-{{ section.settings.columns_desktop }}" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign coll = block.settings.collection
+          assign tile_img = block.settings.custom_image
+          if tile_img == blank and coll != blank
+            assign tile_img = coll.image
+          endif
+          if tile_img == blank and coll != blank and coll.products.first != blank
+            assign tile_img = coll.products.first.featured_image
+          endif
+          assign tile_title = block.settings.title
+          if tile_title == blank and coll != blank
+            assign tile_title = coll.title
+          endif
+          assign tile_url = block.settings.link
+          if tile_url == blank and coll != blank
+            assign tile_url = coll.url
+          endif
+        -%}
+        <li class="mi-catgrid__item" {{ block.shopify_attributes }}>
+          <a href="{{ tile_url | default: '#' }}" class="mi-catgrid__card">
+            <div class="mi-catgrid__media">
+              {%- if tile_img != blank -%}
+                {{ tile_img | image_url: width: 600 | image_tag:
+                  loading: 'lazy',
+                  widths: '200,300,400,600',
+                  sizes: '(min-width: 990px) 22vw, 45vw',
+                  alt: tile_title | escape }}
+              {%- else -%}
+                <div class="mi-catgrid__placeholder">{{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+              {%- endif -%}
+            </div>
+            <div class="mi-catgrid__info">
+              <span class="mi-catgrid__title">{{ tile_title | default: 'Shop now' }}</span>
+              {%- if section.settings.show_count and coll != blank -%}
+                <span class="mi-catgrid__count">{{ coll.products_count }} items</span>
+              {%- endif -%}
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+.mi-catgrid__list {
+  display: grid;
+  gap: 1.6rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.mi-catgrid.mi-section-soft { padding-block: 1px; }
+.mi-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.mi-cols-3 { grid-template-columns: repeat(2, 1fr); }
+.mi-cols-4 { grid-template-columns: repeat(2, 1fr); }
+.mi-cols-5 { grid-template-columns: repeat(2, 1fr); }
+.mi-cols-6 { grid-template-columns: repeat(3, 1fr); }
+@media screen and (min-width: 750px) {
+  .mi-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .mi-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .mi-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .mi-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+.mi-catgrid__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--mi-line, #ece9e3);
+  border-radius: var(--mi-radius, 14px);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--mi-shadow, 0 6px 24px rgba(20,17,14,.08));
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.mi-catgrid__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mi-shadow-hover, 0 14px 38px rgba(20,17,14,.14));
+  border-color: var(--mi-gold, #c9a227);
+}
+.mi-catgrid__media {
+  aspect-ratio: 1 / 1;
+  background: var(--mi-bg-soft, #f7f5f1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mi-catgrid__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s cubic-bezier(.2,.6,.2,1);
+}
+.mi-catgrid__card:hover .mi-catgrid__media img { transform: scale(1.06); }
+.mi-catgrid__placeholder svg { width: 60%; opacity: .35; }
+.mi-catgrid__info {
+  padding: 1.2rem 1.4rem 1.4rem;
+  text-align: center;
+}
+.mi-catgrid__title {
+  display: block;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -.005em;
+}
+.mi-catgrid__count {
+  display: block;
+  margin-top: .3rem;
+  font-size: 1.2rem;
+  color: var(--mi-ink-soft, #5c5750);
+}
+.mi-catgrid__viewall { font-weight: 600; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Category grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by category" },
+    {
+      "type": "select", "id": "heading_size", "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1"
+    },
+    { "type": "url", "id": "view_all_link", "label": "“Explore all” link" },
+    { "type": "text", "id": "view_all_label", "label": "“Explore all” label", "default": "Explore all" },
+    {
+      "type": "range", "id": "columns_desktop", "label": "Columns (desktop)",
+      "min": 2, "max": 6, "step": 1, "default": 5
+    },
+    { "type": "checkbox", "id": "show_count", "label": "Show product count", "default": false },
+    { "type": "checkbox", "id": "soft_bg", "label": "Soft background", "default": false },
+    {
+      "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1"
+    },
+    {
+      "type": "header", "content": "Section padding"
+    },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 52 }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "title", "label": "Custom title (optional)" },
+        { "type": "image_picker", "id": "custom_image", "label": "Custom image (optional)" },
+        { "type": "url", "id": "link", "label": "Custom link (optional)" }
+      ]
+    }
+  ],
+  "max_blocks": 18,
+  "presets": [
+    {
+      "name": "Category grid",
+      "blocks": [
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
