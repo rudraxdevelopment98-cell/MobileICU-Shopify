@@ -411,3 +411,103 @@ a.link, .link--text {
   margin-bottom: 2.4rem;
 }
 
+/* =====================================================================
+   PASS 5 — Product & collection pages
+   ===================================================================== */
+
+/* ---------- Product page ---------- */
+.product__title,
+.product__title h1,
+.product__title h2 {
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+.product__media-wrapper .media,
+.product__media-item .media {
+  border-radius: var(--mi-radius);
+  overflow: hidden;
+}
+.product__info-wrapper {
+  padding-left: 0;
+}
+@media screen and (min-width: 990px) {
+  .product__info-wrapper { padding-left: 4rem; }
+}
+.product .price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.product-form__buttons {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+/* Accordion blocks: clean cards */
+.product__accordion.accordion {
+  border: 1px solid var(--mi-line);
+  border-radius: var(--mi-radius);
+  margin-top: 1.2rem;
+  overflow: hidden;
+}
+.product__accordion .accordion__title { font-weight: 600; }
+.product__accordion summary { padding: 1.4rem 1.6rem; }
+.product__accordion .accordion__content { padding: 0 1.6rem 1.6rem; }
+/* Wholesale price-per-item: highlight (key for a wholesaler) */
+.price-per-item,
+.price-per-item--current {
+  font-weight: 700;
+  color: var(--mi-ink);
+}
+.variant-item__old-price {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* ---------- Collection page ---------- */
+.collection-hero__title {
+  letter-spacing: -0.015em;
+}
+.collection-hero {
+  border-radius: var(--mi-radius);
+  overflow: hidden;
+}
+/* Facets / filter + sort bar */
+.facets__summary,
+.facets__disclosure .facets__display {
+  border-radius: var(--mi-radius);
+  border: 1px solid var(--mi-line);
+  box-shadow: var(--mi-shadow);
+}
+.facets .facets__button,
+.facet-checkbox {
+  border-radius: 8px;
+}
+.active-facets__button,
+.active-facets .active-facets__button-inner {
+  border-radius: 999px;
+}
+.facets__summary .facets__display-header,
+.facets-vertical .facets__heading {
+  font-weight: 600;
+}
+/* Product grid breathing room */
+.product-grid {
+  gap: 2rem 1.6rem;
+}
+/* Pagination buttons */
+.pagination__list .pagination__item {
+  border-radius: 8px;
+}
+.pagination__item--current {
+  background: var(--mi-ink);
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* ---------- Cart drawer / page small polish ---------- */
+.cart__checkout-button,
+.cart__dynamic-checkout-buttons .shopify-payment-button__button {
+  border-radius: 999px !important;
+}
+.drawer__inner { border-radius: var(--mi-radius) 0 0 var(--mi-radius); }
+
