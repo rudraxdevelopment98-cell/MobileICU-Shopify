@@ -327,3 +327,87 @@ a.link, .link--text {
   text-underline-offset: 3px;
 }
 
+/* =====================================================================
+   PASS 4 — Trust bar + feature rows polish
+   ===================================================================== */
+
+/* ---------- Trust / benefits bar ---------- */
+.icon-with-text__section {
+  padding-block: 1rem;
+}
+.icon-box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.icon-box {
+  flex: 1 1 220px;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.6rem 1.8rem;
+  background: var(--mi-bg-soft);
+  border: 1px solid var(--mi-line);
+  border-radius: var(--mi-radius);
+  text-align: left;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.icon-box:hover {
+  border-color: var(--mi-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--mi-shadow);
+}
+.icon-box svg,
+.icon-box img,
+.icon-box .icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  flex: 0 0 auto;
+  color: var(--mi-gold);
+}
+.icon-box p,
+.icon-box .icon-box__text,
+.icon-box h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+/* ---------- Image-with-text feature rows ---------- */
+.image-with-text {
+  margin-block: 0;
+}
+.image-with-text__media {
+  border-radius: var(--mi-radius);
+  overflow: hidden;
+}
+.image-with-text__content {
+  padding-block: 3rem;
+}
+.image-with-text__heading {
+  margin-bottom: 1rem;
+}
+.image-with-text .button {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Slideshow hero: cleaner text block ---------- */
+.slideshow__text.banner__box {
+  border-radius: var(--mi-radius);
+}
+.slideshow__text .banner__heading,
+.banner__heading {
+  letter-spacing: -0.01em;
+}
+.banner__buttons .button { min-width: 16rem; }
+
+/* ---------- Best Sellers heading rhythm ---------- */
+.featured-collection .title-wrapper {
+  margin-bottom: 2.4rem;
+}
+
