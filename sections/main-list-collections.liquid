@@ -1,0 +1,146 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+<style>
+  div#shopify-section-template--25405851042086__main {
+    background-color: #fff !important;
+  }
+</style>
+
+<div class="page-width">
+  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {{ section.settings.title }}
+  </h1>
+
+  {%- liquid
+    assign selected_collections = section.blocks | map: 'settings' | map: 'collection' | compact
+
+    case section.settings.sort
+      when 'products_high', 'products_low'
+        assign selected_collections = selected_collections | sort: 'all_products_count'
+      when 'date', 'date_reversed'
+        assign selected_collections = selected_collections | sort: 'published_at'
+      when 'alphabetical', 'alphabetical_reversed'
+        assign selected_collections = selected_collections | sort: 'title'
+    endcase
+
+    if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
+      assign selected_collections = selected_collections | reverse
+    endif
+  -%}
+
+  <ol
+    class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+    role="list"
+  >
+    {%- for collection in selected_collections limit: section.settings.collections_limit -%}
+      {% if collection != blank %}
+        <li
+          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+          {% render 'card-collection',
+            card_collection: collection,
+            media_aspect_ratio: section.settings.image_ratio,
+            columns: 3
+          %}
+        </li>
+      {% endif %}
+    {%- endfor -%}
+  </ol>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Collection List",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Our Collections"
+    },
+    {
+      "type": "select",
+      "id": "sort",
+      "label": "Sort collections by",
+      "options": [
+        { "value": "alphabetical", "label": "Alphabetical (A–Z)" },
+        { "value": "alphabetical_reversed", "label": "Alphabetical (Z–A)" },
+        { "value": "date", "label": "Date added (oldest first)" },
+        { "value": "date_reversed", "label": "Date added (newest first)" },
+        { "value": "products_high", "label": "Product count (high → low)" },
+        { "value": "products_low", "label": "Product count (low → high)" }
+      ],
+      "default": "alphabetical"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "adapt",
+      "label": "Image ratio"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Columns (desktop)"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1 per row" },
+        { "value": "2", "label": "2 per row" }
+      ],
+      "default": "2",
+      "label": "Columns (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "collections_limit",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 6,
+      "label": "Max collections to display"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Choose collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Custom Collection List",
+      "category": "Collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}

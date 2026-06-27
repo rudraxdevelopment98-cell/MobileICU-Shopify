@@ -1,0 +1,123 @@
+{% style %}
+  .icon-with-text__section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .icon-with-text__section h2 {
+    margin-top: 0;
+    font-size: 48px;
+    font-weight: 600;
+  }
+ .icon-box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 4rem;
+  }
+  .icon-box {
+    max-width: 515px;
+    width: 50%;
+  }
+  .icon-box h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: 500;
+  }
+  .icon-box p {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    color: #828282;
+    line-height: 1.5;
+  }
+  @media only screen and (max-width:1024px){
+  .icon-box-wrapper {
+    column-gap: 8rem;
+    row-gap: 4rem;
+  }
+    .icon-box {
+    max-width: 416px;
+    width: 50%;
+}
+  }
+  @media only screen and (max-width:990px){
+  .icon-box {
+    max-width: 515px;
+    width: 46%;
+  }
+  .icon-box-wrapper {
+    row-gap: 3rem;
+    column-gap: 5rem;
+  }
+    .icon-box h3{font-size: 22px;}
+    .icon-box p{font-size: 16px;}
+  }
+  @media only screen and (max-width:480px){
+    .icon-with-text__section h2{font-size: 30px;}
+    .icon-box{width: 100%;}
+  }
+{% endstyle %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="icon-with-text__section page-width">
+    <h2>{{ section.settings.heading }}</h2>
+  <div class="icon-box-wrapper">
+    {% for block in section.blocks %}
+      <div class="icon-box">
+        {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | img_url:'master' }}" alt="" width="" height="">
+        {% endif %}
+        <h3>{{ block.settings.subheading }}</h3>
+        <p>{{ block.settings.description }}</p>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Icon With Text",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-2"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon_box",
+        "name": "Icon Box",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "subheading",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icon With Text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,98 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_jwQqW4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NycQAz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Collections",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NycQAz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "blocks": {
+        "collection_XYYr3P": {
+          "type": "collection",
+          "settings": {
+            "collection": "adapter"
+          }
+        },
+        "collection_8mrqCx": {
+          "type": "collection",
+          "settings": {
+            "collection": "audio-accessories"
+          }
+        },
+        "collection_yeHXPL": {
+          "type": "collection",
+          "settings": {
+            "collection": "cables"
+          }
+        },
+        "collection_WmnzzU": {
+          "type": "collection",
+          "settings": {
+            "collection": "headphone"
+          }
+        },
+        "collection_RFNWRn": {
+          "type": "collection",
+          "settings": {
+            "collection": "phone-cases"
+          }
+        },
+        "collection_dxiyfN": {
+          "type": "collection",
+          "settings": {
+            "collection": "repair-parts"
+          }
+        }
+      },
+      "block_order": [
+        "collection_XYYr3P",
+        "collection_8mrqCx",
+        "collection_yeHXPL",
+        "collection_WmnzzU",
+        "collection_RFNWRn",
+        "collection_dxiyfN"
+      ],
+      "settings": {
+        "title": "",
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "collections_limit": 8
+      }
+    }
+  },
+  "order": [
+    "rich_text_jwQqW4",
+    "main"
+  ]
+}

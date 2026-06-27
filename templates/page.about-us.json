@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "about_us_LDktKH": {
+      "type": "about-us",
+      "name": "About Us",
+      "settings": {
+        "heading": "<strong>About Us</strong>",
+        "image": "shopify://shop_images/Rectangle_8.png",
+        "content": "<p>Since 2005, Mobile ICU has been proudly serving customers in the UK with a fantastic range of innovative and stylish accessories for phones, tablets, and handheld devices. We take great pride in setting a higher standard for mid-mall retailing, and over the years, we have continuously refined and improved our operations and services to bring added value to your shopping experience.</p>",
+        "image1": "shopify://shop_images/mobile-icu.png",
+        "content1": "<p>You can find our exciting products in various locations, including Shopping Centres, Train Stations, Motor Way Services, and Retail Parks. Our commitment to excellence has led us to collaborate with some of Europe’s most well-known agencies and retailers.</p><p>At Mobile ICU, we believe in enhancing your lifestyle by offering top-quality accessories that elevate your style and enhance the functionality of your devices. Join us now to explore a wide range of products that add convenience and excitement to your tech-savvy world.<br/><br/></p>",
+        "color_scheme": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about_us_LDktKH"
+  ]
+}

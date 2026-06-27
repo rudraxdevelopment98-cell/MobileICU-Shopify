@@ -1,0 +1,499 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_Jz8Wgm": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_LkPVtj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Header_with_image_3.png",
+            "image_tablet": "shopify://shop_images/Tablet_Headphone12345.png",
+            "image_mobile": "shopify://shop_images/Group_18.png",
+            "image_overlay_opacity": 0,
+            "imagenew": "shopify://shop_images/Vector_4.png",
+            "heading": "<strong>GET ANY ACCESSORY</strong>",
+            "heading_size": "h1",
+            "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLEWHOLESALE PRICE",
+            "button_label": "Shop Now",
+            "link": "https://mobile-icu-cws.myshopify.com/collections",
+            "button_label1": "Register",
+            "link1": "https://mobile-icu-cws.myshopify.com/account/register",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-left",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-aa841c61-a9fa-4ed2-a1dc-3ecda740f359"
+          }
+        },
+        "slide_iPTJVQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Header_with_image.png",
+            "image_tablet": "shopify://shop_images/Header_with_image.png",
+            "image_mobile": "shopify://shop_images/Group_19.png",
+            "image_overlay_opacity": 0,
+            "imagenew": "shopify://shop_images/Vector_5.png",
+            "heading": "<strong>GET ANY ACCESSORY</strong>",
+            "heading_size": "h1",
+            "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLEWHOLESALE PRICE",
+            "button_label": "Shop Now",
+            "link": "https://mobile-icu-cws.myshopify.com/collections",
+            "button_label1": "Register",
+            "link1": "https://mobile-icu-cws.myshopify.com/account/register",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-left",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1fd3ad3d-1af6-4cf9-a7c1-c66bc5758fa7"
+          }
+        },
+        "slide_X66hLU": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Header_with_image_4.png",
+            "image_tablet": "shopify://shop_images/tablet_airphone_with_headphone2.png",
+            "image_mobile": "shopify://shop_images/Group_20.png",
+            "image_overlay_opacity": 0,
+            "imagenew": "shopify://shop_images/Vector_4.png",
+            "heading": "<strong>GET ANY ACCESSORY</strong>",
+            "heading_size": "h1",
+            "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLEWHOLESALE PRICE",
+            "button_label": "Shop Now",
+            "link": "https://mobile-icu-cws.myshopify.com/collections",
+            "button_label1": "Register",
+            "link1": "https://mobile-icu-cws.myshopify.com/account/register",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-right",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-bd10bdf3-7356-4aef-80eb-094e6a68165b"
+          }
+        }
+      },
+      "block_order": [
+        "slide_LkPVtj",
+        "slide_iPTJVQ",
+        "slide_X66hLU"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "numbers",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "hero_banner_EHb3iE": {
+      "type": "hero-banner",
+      "disabled": true,
+      "name": "Hero Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/close-up-metallic-headphones_2_1.png",
+        "image_shadow": "shopify://shop_images/image-shadow.png",
+        "rating": "4.9/5 Rating",
+        "heading": "GET ANY ACCESSORIES",
+        "subheading": "RELATED TO PHONES AND LAPTOP IN WHOLE SALE PRICE",
+        "shop_button_label": "Shop Now",
+        "shop_button_url": "shopify://collections",
+        "register_button_label": "Register Now",
+        "register_button_url": "https://mobile-icu-cws.myshopify.com/account/register",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "image_with_text_wGTiEw": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ffJrtd": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Phone Cases</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_gTEDzX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your One-Stop Wholesale Shop for Premium Phone Cases.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_RKRVbN": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/phone-cases",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ffJrtd",
+        "text_gTEDzX",
+        "button_RKRVbN"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/H2055792212024bebbf89c463e2a7d2cah.jpg",
+        "section_class": "image-with-text-home",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_bCEeyB": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xHmzb8": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Cables</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_eKy7BJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From Charge to Sound – We've Got the Cable Ground.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_gchELc": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/cables",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xHmzb8",
+        "text_eKy7BJ",
+        "button_gchELc"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Cables.png",
+        "section_class": "image-with-text-home",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_ND8eRy": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9GjmxW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Audio Accessories</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_KKkCxk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your Wholesale Source for Every Audio Need.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_rG6X4z": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/audio-accessories",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_9GjmxW",
+        "text_KKkCxk",
+        "button_rG6X4z"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/audio_accessories.png",
+        "section_class": "image-with-text-home",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_GDVG9k": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nnntr9": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Repair Parts</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_BGKJzk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>One Stop for All Mobile Repair Needs – Wholesale & Reliable.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_D7p3KV": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/repair-parts",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nnntr9",
+        "text_BGKJzk",
+        "button_D7p3KV"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Repair_Parts.png",
+        "section_class": "image-with-text-home",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_slider_6Rfxga": {
+      "type": "collection-slider",
+      "blocks": {
+        "collection_block_wC99kb": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "audio-accessories"
+          }
+        },
+        "collection_block_94DtpE": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "cables"
+          }
+        },
+        "collection_block_Wzq4m7": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "headphone"
+          }
+        },
+        "collection_block_UUapb3": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "phone-cases"
+          }
+        },
+        "collection_block_pG6cHi": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "repair-parts"
+          }
+        },
+        "collection_block_VKXK3j": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "adapter"
+          }
+        },
+        "collection_block_cVRHEC": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "cables"
+          }
+        },
+        "collection_block_hcjdJp": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "headphone"
+          }
+        },
+        "collection_block_rHV3F3": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "phone-cases"
+          }
+        },
+        "collection_block_3WN6Fy": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "repair-parts"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_wC99kb",
+        "collection_block_94DtpE",
+        "collection_block_Wzq4m7",
+        "collection_block_UUapb3",
+        "collection_block_pG6cHi",
+        "collection_block_VKXK3j",
+        "collection_block_cVRHEC",
+        "collection_block_hcjdJp",
+        "collection_block_rHV3F3",
+        "collection_block_3WN6Fy"
+      ],
+      "name": "Collection Slider",
+      "settings": {
+        "title": "Products"
+      }
+    },
+    "about_us_XjqA8r": {
+      "type": "about-us",
+      "name": "About Us",
+      "settings": {
+        "heading": "<strong>About Us</strong>",
+        "image": "shopify://shop_images/Rectangle_8.png",
+        "content": "<p>Since 2005, Mobile ICU has been proudly serving customers in the UK with a fantastic range of innovative and stylish accessories for phones, tablets, and handheld devices. We take great pride in setting a higher standard for mid-mall retailing, and over the years, we have continuously refined and improved our operations and services to bring added value to your shopping experience.</p>",
+        "image1": "shopify://shop_images/mobile-icu.png",
+        "content1": "<p>You can find our exciting products in various locations, including Shopping Centres, Train Stations, Motor Way Services, and Retail Parks. Our commitment to excellence has led us to collaborate with some of Europe’s most well-known agencies and retailers.</p><p>At Mobile ICU, we believe in enhancing your lifestyle by offering top-quality accessories that elevate your style and enhance the functionality of your devices. Join us now to explore a wide range of products that add convenience and excitement to your tech-savvy world.<br/><br/></p>",
+        "color_scheme": ""
+      }
+    },
+    "featured_collection_HxnVaJ": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "audio-accessories",
+        "products_to_show": 8,
+        "title": "Products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "icon_with_text_custom_cAXW93": {
+      "type": "icon-with-text-custom",
+      "blocks": {
+        "icon_box_TWyXEh": {
+          "type": "icon_box",
+          "settings": {
+            "icon": "shopify://shop_images/globe.png",
+            "subheading": "24/7 Customer Support",
+            "description": "<p>We're always here when you need us. Quick help anytime.</p>"
+          }
+        },
+        "icon_box_FxFzn3": {
+          "type": "icon_box",
+          "settings": {
+            "icon": "shopify://shop_images/user.png",
+            "subheading": "Same Day Dispatch",
+            "description": "<p>We dispatch mostly the same day. Your order gets processed fast and sent out quickly.</p>"
+          }
+        },
+        "icon_box_G7th7e": {
+          "type": "icon_box",
+          "settings": {
+            "icon": "shopify://shop_images/lock.png",
+            "subheading": "Quick Delivery",
+            "description": "<p>We always get you delivery as quick as possible. Fast shipping to your doorstep.</p>"
+          }
+        },
+        "icon_box_3f9DQc": {
+          "type": "icon_box",
+          "settings": {
+            "icon": "shopify://shop_images/celender.png",
+            "subheading": "Instant Mobile Repair on Shop",
+            "description": "<p>Bring your phone in and we'll fix it right away. Most repairs finished while you wait.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_TWyXEh",
+        "icon_box_FxFzn3",
+        "icon_box_G7th7e",
+        "icon_box_3f9DQc"
+      ],
+      "name": "Icon With Icon",
+      "settings": {
+        "heading": "",
+        "color_scheme": "scheme-3"
+      }
+    }
+  },
+  "order": [
+    "slideshow_Jz8Wgm",
+    "hero_banner_EHb3iE",
+    "image_with_text_wGTiEw",
+    "image_with_text_bCEeyB",
+    "image_with_text_ND8eRy",
+    "image_with_text_GDVG9k",
+    "collection_slider_6Rfxga",
+    "about_us_XjqA8r",
+    "featured_collection_HxnVaJ",
+    "icon_with_text_custom_cAXW93"
+  ]
+}
