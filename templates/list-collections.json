@@ -34,7 +34,7 @@
       }
     },
     "main": {
-      "type": "main-list-collections",
+      "type": "mi-collection-list",
       "blocks": {
         "collection_XYYr3P": {
           "type": "collection",
@@ -84,10 +84,9 @@
       "settings": {
         "title": "",
         "sort": "alphabetical",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "collections_limit": 8
+        "show_subgroups": true,
+        "collections_limit": 12,
+        "color_scheme": "scheme-1"
       }
     }
   },

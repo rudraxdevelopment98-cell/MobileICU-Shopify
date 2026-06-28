@@ -1,0 +1,253 @@
+{%- comment -%}
+  MOBILE ICU — Collection list (tabular)
+  Renders the store's collections as horizontal list rows instead of square
+  tiles, so it's easy to scan "what we have". Each row shows a thumbnail, the
+  collection name, the item count and a View link. Optionally each row expands
+  to show sub-groups (brands / models) derived from the collection's products,
+  each linking into the collection filtered by that brand.
+{%- endcomment -%}
+
+{%- style -%}
+  .mi-coll-list-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+{%- endstyle -%}
+
+<div class="mi-coll color-{{ section.settings.color_scheme }} isolate">
+  <div class="page-width mi-coll-list-{{ section.id }}">
+    {%- if section.settings.title != blank -%}
+      <h1 class="mi-coll__heading {{ section.settings.heading_size }}">{{ section.settings.title }}</h1>
+    {%- endif -%}
+
+    {%- liquid
+      assign selected_collections = section.blocks | map: 'settings' | map: 'collection' | compact
+      case section.settings.sort
+        when 'products_high', 'products_low'
+          assign selected_collections = selected_collections | sort: 'all_products_count'
+        when 'date', 'date_reversed'
+          assign selected_collections = selected_collections | sort: 'published_at'
+        when 'alphabetical', 'alphabetical_reversed'
+          assign selected_collections = selected_collections | sort: 'title'
+      endcase
+      if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
+        assign selected_collections = selected_collections | reverse
+      endif
+    -%}
+
+    <div class="mi-coll__head" role="row" aria-hidden="true">
+      <span class="mi-coll__h mi-coll__h--media"></span>
+      <span class="mi-coll__h mi-coll__h--name">Collection</span>
+      <span class="mi-coll__h mi-coll__h--count">Items</span>
+      <span class="mi-coll__h mi-coll__h--action"></span>
+    </div>
+
+    <ul class="mi-coll__list" role="list">
+      {%- for collection in selected_collections limit: section.settings.collections_limit -%}
+        {%- if collection != blank -%}
+          {%- liquid
+            assign thumb = collection.image
+            if thumb == blank and collection.products.first != blank
+              assign thumb = collection.products.first.featured_image
+            endif
+            assign brands = collection.products | map: 'vendor' | uniq | sort
+          -%}
+          <li class="mi-coll__row">
+            <a class="mi-coll__main" href="{{ collection.url }}">
+              <span class="mi-coll__media">
+                {%- if thumb != blank -%}
+                  {{ thumb | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80,120,160', sizes: '64px', alt: collection.title | escape, class: 'mi-coll__img' }}
+                {%- else -%}
+                  <span class="mi-coll__img mi-coll__img--ph">{{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}</span>
+                {%- endif -%}
+              </span>
+              <span class="mi-coll__name">{{ collection.title }}</span>
+              <span class="mi-coll__count">{{ collection.all_products_count }}</span>
+              <span class="mi-coll__action">View<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+
+            {%- if section.settings.show_subgroups and brands.size > 0 -%}
+              <details class="mi-coll__sub">
+                <summary class="mi-coll__sub-toggle">{{ brands.size }} brand{% if brands.size != 1 %}s{% endif %} / models</summary>
+                <ul class="mi-coll__sub-list" role="list">
+                  {%- for brand in brands -%}
+                    {%- if brand != blank -%}
+                      <li class="mi-coll__sub-item">
+                        <a href="{{ collection.url }}?filter.p.vendor={{ brand | url_encode }}" class="mi-coll__chip">{{ brand }}</a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </details>
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+.mi-coll__heading { margin: 0 0 1.4rem; }
+.mi-coll__head {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 0 1.2rem .6rem;
+  font-size: 1.1rem;
+  letter-spacing: .08rem;
+  text-transform: uppercase;
+  opacity: .6;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
+.mi-coll__h--count { text-align: center; }
+.mi-coll__list { list-style: none; margin: 0; padding: 0; }
+.mi-coll__row { border-bottom: 1px solid rgba(0,0,0,.08); }
+.mi-coll__main {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color .15s ease;
+}
+.mi-coll__main:hover { background-color: rgba(0,0,0,.035); }
+.mi-coll__media { width: 64px; height: 64px; }
+.mi-coll__img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; display: block; background: rgba(0,0,0,.05); }
+.mi-coll__img--ph { display: grid; place-items: center; padding: 8px; }
+.mi-coll__name { font-weight: 600; font-size: 1.6rem; }
+.mi-coll__count {
+  min-width: 2.4rem; text-align: center; font-variant-numeric: tabular-nums;
+  background: rgba(0,0,0,.06); border-radius: 999px; padding: .2rem .8rem; font-size: 1.3rem;
+}
+.mi-coll__action { display: inline-flex; align-items: center; gap: .3rem; font-weight: 600; font-size: 1.3rem; white-space: nowrap; }
+.mi-coll__action svg { transition: transform .15s ease; }
+.mi-coll__main:hover .mi-coll__action svg { transform: translateX(3px); }
+.mi-coll__sub { padding: 0 1.2rem 1rem 76px; }
+.mi-coll__sub-toggle { cursor: pointer; font-size: 1.25rem; opacity: .7; list-style: none; padding: .2rem 0; }
+.mi-coll__sub-toggle::-webkit-details-marker { display: none; }
+.mi-coll__sub-toggle::before { content: '+ '; font-weight: 700; }
+.mi-coll__sub[open] .mi-coll__sub-toggle::before { content: '– '; }
+.mi-coll__sub-list { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin: .6rem 0 0; padding: 0; }
+.mi-coll__chip {
+  display: inline-block; padding: .4rem 1rem; border: 1px solid rgba(0,0,0,.15);
+  border-radius: 999px; font-size: 1.25rem; text-decoration: none; color: inherit;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.mi-coll__chip:hover { background: rgba(0,0,0,.06); border-color: rgba(0,0,0,.3); }
+
+@media screen and (max-width: 749px) {
+  .mi-coll__head { display: none; }
+  .mi-coll__main { grid-template-columns: 56px 1fr auto; gap: .9rem; padding: .9rem .6rem; }
+  .mi-coll__media, .mi-coll__img { width: 56px; height: 56px; }
+  .mi-coll__action { display: none; }
+  .mi-coll__name { font-size: 1.5rem; }
+  .mi-coll__sub { padding: 0 .6rem .9rem 65px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MI Collection List",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Our Collections"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "sort",
+      "label": "Sort collections by",
+      "options": [
+        { "value": "alphabetical", "label": "Alphabetical (A–Z)" },
+        { "value": "alphabetical_reversed", "label": "Alphabetical (Z–A)" },
+        { "value": "date", "label": "Date added (oldest first)" },
+        { "value": "date_reversed", "label": "Date added (newest first)" },
+        { "value": "products_high", "label": "Product count (high → low)" },
+        { "value": "products_low", "label": "Product count (low → high)" }
+      ],
+      "default": "alphabetical"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subgroups",
+      "label": "Show sub-groups (brands / models) per collection",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "collections_limit",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 12,
+      "label": "Max collections to display"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Choose collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "MI Collection List",
+      "category": "Collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}
